@@ -9,9 +9,7 @@ class WordReader
   def read_from_file(file_name)
     raise RuntimeError.new 'Слово не найдено. Проверьте word.txt' if File.exist?(file_name) == false
 
-    f = File.new(file_name, "r:UTF-8")
-    lines = f.readlines
-    f.close
+    lines = File.readlines(file_name, encoding: 'UTF-8')
 
     lines.sample.chomp
   end
